@@ -1,0 +1,35 @@
+---
+layout: default
+---
+    
+<header class="publication-header">
+    <h1 class="publication-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="publication-meta">
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
+            {{ page.date | date: date_format }}
+        </time>
+    </p>
+    <p>
+        <span>
+            {%- for member in page.members -%}
+                {%- assign m = site.members | where: 'short_name', member -%}
+                {%- if forloop.index > 1 -%}
+                    ,
+                {% endif -%}
+                {{ m[0].name }}
+            {%- endfor -%}
+        </span>
+    </p>
+    <a target="_blank" rel="noopener noreferrer" href={{ page.link }}>Paper</a>
+</header>
+
+<img src="/images/publications/{{ page.title }}.png">
+<p><i>{{ page.caption }}</i></p>
+
+<h1>Abstract</h1>
+{{ content }}
+
+<p><i>BibTeX goes here</i></p>
+
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

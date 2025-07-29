@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.projects.size > 0 -%}
+    <h2 class="project-list-heading">{{ page.list_title | default: "Projects" }}</h2>
+    <ul class="project-list">
+      {%- for project in site.projects -%}
+        <li>
+          <h3>
+            <a class="project-link" href="{{ project.url | relative_url }}">
+              {{ project.title | escape }}
+            </a>
+          </h3>
+          {%- if site.show_excerpts -%}
+            {{ project.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+  {%- if site.members.size > 0 -%}
+    <h2 class="member-list-heading">{{ page.list_title | default: "Members" }}</h2>
+    <ul class="member-list">
+      {%- for member in site.members -%}
+        <li>
+          <img src="/images/members/{{ member.short_name }}.png" width="100">
+          <h3>
+            <a class="member-link" href="{{ member.url | relative_url }}">
+              {{ member.name | escape }}
+            </a>
+          </h3>
+          <h4>{{ member.position }}</h4>
+          {%- if site.show_excerpts -%}
+            {{ project.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+</div>

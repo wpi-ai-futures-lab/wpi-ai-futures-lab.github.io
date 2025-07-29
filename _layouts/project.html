@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<header class="project-header">
+    <h1 class="project-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p>{{ page.description }}</p>
+    <h2>Members</h2>
+    <ul>
+        {%- for member in page.members -%}
+            {%- assign m = site.members | where: 'short_name', member -%}
+            <li>{{ m[0].name }}</li>
+        {%- endfor -%}
+    </ul>
+</header>
+
+<img src="/images/projects/{{ page.title }}.png">
+
+{{ content }}
+
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
