@@ -32,7 +32,7 @@ layout: default
     <ul class="member-list">
       {%- for member in site.members -%}
         <li>
-          <img src="/images/members/{{ member.short_name }}.png" width="100">
+          <img src="{{ site.url }}/images/members/{{ member.short_name }}.png" width="100">
           <h3>
             <a class="member-link" href="{{ member.url | relative_url }}">
               {{ member.name | escape }}
