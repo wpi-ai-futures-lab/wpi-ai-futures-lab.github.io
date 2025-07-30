@@ -6,7 +6,7 @@ permalink: /publications/
 <ul class="publication-list">
     {%- for publication in site.publications -%}
     <li>
-        <img src="/images/publications/{{ publication.title }}.png" width="100">
+        <img src="{{ site.baseurl }}/images/publications/{{ publication.title }}.png" width="100">
         <div>
             {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
             <span class="publication-meta">{{ publication.date | date: date_format }} | {{ publication.source }}</span>

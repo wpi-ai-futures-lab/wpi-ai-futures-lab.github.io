@@ -24,12 +24,15 @@ layout: default
     <a target="_blank" rel="noopener noreferrer" href={{ page.link }}>Paper</a>
 </header>
 
-<img src="/images/publications/{{ page.title }}.png">
+<img src="{{ site.baseurl }}/images/publications/{{ page.title }}.png">
 <p><i>{{ page.caption }}</i></p>
 
 <h1>Abstract</h1>
 {{ content }}
 
-<p><i>BibTeX goes here</i></p>
+<h1>BibTeX</h1>
+{% highlight bibtex %}
+{{ page.bibtex }}
+{% endhighlight %}
 
 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
