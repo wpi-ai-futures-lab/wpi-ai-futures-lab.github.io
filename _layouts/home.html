@@ -3,48 +3,47 @@ layout: default
 ---
 
 <div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+	{%- if page.title -%}
+		<h1 class="page-heading">{{ page.title }}</h1>
+	{%- endif -%}
 
-  {{ content }}
+	{{ content }}
 
-  {%- if site.projects.size > 0 -%}
-    <h2 class="project-list-heading">{{ page.list_title | default: "Projects" }}</h2>
-    <ul class="project-list">
-      {%- for project in site.projects -%}
-        <li>
-          <h3>
-            <a class="project-link" href="{{ project.url | relative_url }}">
-              {{ project.title | escape }}
-            </a>
-          </h3>
-          {%- if site.show_excerpts -%}
-            {{ project.excerpt }}
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
+	{%- if site.projects.size > 0 -%}
+		<h2 class="project-list-heading">{{ page.list_title | default: "Projects" }}</h2>
+		<div class="project-list" style="display: flex;">
+			{%- for project in site.projects -%}
+				<div style="display: flex; flex-direction: column; margin-right: 10px;">
+					<a class="project-link" href="{{ project.url | relative_url }}">
+						<h3>{{ project.title | escape }}</h3>
+						<img src="{{ site.baseurl }}/images/projects/{{ project.title }}.png" width="500">
+					</a>
+					{% comment %} {%- if site.show_excerpts -%}
+						{{ project.excerpt }}
+					{%- endif -%} {% endcomment %}
+				</div>
+			{%- endfor -%}
+		</div>
+		{% comment %} {% include projectDisplay.html %} {% endcomment %}
+	{%- endif -%}
 
-  {%- if site.members.size > 0 -%}
-    <h2 class="member-list-heading">{{ page.list_title | default: "Members" }}</h2>
-    <ul class="member-list">
-      {%- for member in site.members -%}
-        <li>
-          <img src="{{ site.baseurl }}/images/members/{{ member.short_name }}.png" width="100">
-          <h3>
-            <a class="member-link" href="{{ member.url | relative_url }}">
-              {{ member.name | escape }}
-            </a>
-          </h3>
-          <h4>{{ member.position }}</h4>
-          {%- if site.show_excerpts -%}
-            {{ project.excerpt }}
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
-
+	{%- if site.members.size > 0 -%}
+		<h2 class="member-list-heading">{{ page.list_title | default: "Members" }}</h2>
+		<div class="member-list" style="display: flex; flex-direction: column;">
+			{%- for member in site.members -%}
+				<a class="member-link" href="{{ member.url | relative_url }}">
+					<div style="display: flex; margin-bottom: 10px;">
+						<img src="{{ site.baseurl }}/images/members/{{ member.short_name }}.png" width="100">
+						<div style="display: flex; flex-direction: column;">
+							<h3>{{ member.name | escape }}</h3>
+							<h4>{{ member.position }}</h4>
+							{% comment %} {%- if site.show_excerpts -%}
+								{{ project.excerpt }}
+							{%- endif -%} {% endcomment %}
+						</div>
+					</div>
+				</a>
+			{%- endfor -%}
+		</div>
+	{%- endif -%}
 </div>

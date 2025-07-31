@@ -1,0 +1,35 @@
+<div class="publication-list" style="display: flex; flex-direction: column;">
+    {%- if include.member == "" -%}
+        {%- assign filtered_publications = site.publications -%}
+    {%- else -%}
+        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.members contains include.member" -%}
+    {%- endif -%}
+    {%- for publication in filtered_publications -%}
+        <div style="display: flex; max-height: fit-content; border: 2px solid black; margin-bottom: 10px;">
+            <img src="{{ site.baseurl }}/images/publications/{{ publication.title }}.png" style="height: 100px">
+            <div style="display: flex; flex-direction: column;">
+                {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
+                <span class="publication-meta">{{ publication.date | date: date_format }} | {{ publication.source }}</span>
+                <h3>
+                    <a class="publication-link" href="{{ publication.url | relative_url }}">
+                        {{ publication.title | escape }}
+                    </a>
+                </h3>
+                <h4>
+                    {%- for member in publication.members -%}
+                        {%- assign m = site.members | where: 'short_name', member -%}
+                        {%- if forloop.index > 1 -%}
+                            ,
+                        {% endif -%}
+                        {{ m[0].name }}
+                    {%- endfor -%}
+                </h4>
+                {%- if site.show_excerpts -%}
+                    {{ publication.excerpt }}
+                {%- endif -%}
+            </div>
+        </div>
+    {%- else -%}
+        <p>Nothing yet...</p>
+    {%- endfor -%}
+</div>

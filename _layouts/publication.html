@@ -9,6 +9,7 @@ layout: default
             {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
             {{ page.date | date: date_format }}
         </time>
+        | {{ page.source }}
     </p>
     <p>
         <span>

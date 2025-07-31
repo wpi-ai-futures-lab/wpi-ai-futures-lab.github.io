@@ -1,0 +1,22 @@
+<div class="project-list" style="display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 20px;">
+    {%- if include.member == "" -%}
+        {%- assign filtered_projects = site.projects -%}
+    {%- else -%}
+        {%- assign filtered_projects = site.projects | where_exp: 'proj', "proj.members contains include.member" -%}
+    {%- endif -%}
+    {%- for project in filtered_projects -%}
+        <div>
+            <a class="project-link" href="{{ project.url | relative_url }}">
+                <h3>
+                    {{ project.title | escape }}
+                </h3>
+                <img src="{{ site.baseurl }}/images/projects/{{ project.title }}.png">
+            </a>
+            {%- if site.show_excerpts -%}
+                {{ project.excerpt }}
+            {%- endif -%}
+        </div>
+    {%- else -%}
+        <p>Nothing yet...</p>
+    {%- endfor -%}
+</div>
