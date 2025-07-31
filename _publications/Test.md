@@ -3,8 +3,7 @@ date: 2024-09-01
 source: Science Magazine
 members:
     - john
-    - john
-    - john
+    - jane
 link: https://ai-futures-lab.wpi.edu/
 caption: Test
 bibtex: >-

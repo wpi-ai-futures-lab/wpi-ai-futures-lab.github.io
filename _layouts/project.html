@@ -6,12 +6,14 @@ layout: default
     <h1 class="project-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p>{{ page.description }}</p>
     <h2>Members</h2>
-    <ul>
+    {% comment %} <ul>
         {%- for member in page.members -%}
             {%- assign m = site.members | where: 'short_name', member -%}
             <li>{{ m[0].name }}</li>
         {%- endfor -%}
-    </ul>
+    </ul> {% endcomment %}
+    {%- assign member_list = site.members | where_exp: 'mem', "page.members contains mem.short_name" -%}
+    {%- include memberDisplay.html list=member_list -%}
 </header>
 
 <img src="{{ site.baseurl }}/images/projects/{{ page.title }}.png">

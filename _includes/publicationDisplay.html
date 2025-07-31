@@ -17,11 +17,13 @@
                 </h3>
                 <h4>
                     {%- for member in publication.members -%}
-                        {%- assign m = site.members | where: 'short_name', member -%}
+                        {%- assign m = site.members | where: 'short_name', member | first -%}
                         {%- if forloop.index > 1 -%}
                             ,
                         {% endif -%}
-                        {{ m[0].name }}
+                        <a href="{{ m.url | relative_url }}">
+                            {{ m.name }}
+                        </a>
                     {%- endfor -%}
                 </h4>
                 {%- if site.show_excerpts -%}

@@ -11,7 +11,7 @@ layout: default
         </time>
         | {{ page.source }}
     </p>
-    <p>
+    {% comment %} <p>
         <span>
             {%- for member in page.members -%}
                 {%- assign m = site.members | where: 'short_name', member -%}
@@ -21,7 +21,9 @@ layout: default
                 {{ m[0].name }}
             {%- endfor -%}
         </span>
-    </p>
+    </p> {% endcomment %}
+    {%- assign member_list = site.members | where_exp: 'mem', "page.members contains mem.short_name" -%}
+    {%- include memberDisplay.html list=member_list -%}
     <a target="_blank" rel="noopener noreferrer" href={{ page.link }}>Paper</a>
 </header>
 
