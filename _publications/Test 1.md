@@ -2,8 +2,10 @@
 date: 2024-09-01
 source: Science Magazine
 members:
-    - john
-    - jane
+    - mjchen
+    - mveccia
+    - gmsmith
+    - emgorodisch
 link: https://ai-futures-lab.wpi.edu/
 caption: Test
 bibtex: >-

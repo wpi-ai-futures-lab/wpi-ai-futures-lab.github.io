@@ -1,14 +1,19 @@
 ---
 layout: default
 ---
-    
-<h1>{{ page.name }}</h1>
-<h2>{{ page.position }}</h2>
 
-{{ content }}
+<div style="display: flex;">
+    <div style="width: 500px; margin-right: 25px;">
+        <img src="{{ site.baseurl }}/images/members/{{ page.short_name }}.png" width="250">
+        <h1>{{ page.name }}</h1>
+        <h2>{{ page.position }}</h2>
+        {{ content }}
+    </div>
+    <div>
+        <h2>Projects</h2>
+        {%- include projectDisplay.html member=page.short_name -%}
 
-<h2>Projects</h2>
-{%- include projectDisplay.html member=page.short_name -%}
-
-<h2>Publications</h2>
-{%- include publicationDisplay.html member=page.short_name -%}
+        <h2>Publications</h2>
+        {%- include publicationDisplay.html member=page.short_name -%}
+    </div>
+</div>

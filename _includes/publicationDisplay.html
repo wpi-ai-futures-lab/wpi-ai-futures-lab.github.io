@@ -18,11 +18,9 @@
                 <h4>
                     {%- for member in publication.members -%}
                         {%- assign m = site.members | where: 'short_name', member | first -%}
-                        {%- if forloop.index > 1 -%}
-                            ,
-                        {% endif -%}
+                        {%- if forloop.index > 1 -%}, {% endif -%}
                         <a href="{{ m.url | relative_url }}">
-                            {{ m.name }}
+                            {{- m.name -}}
                         </a>
                     {%- endfor -%}
                 </h4>
