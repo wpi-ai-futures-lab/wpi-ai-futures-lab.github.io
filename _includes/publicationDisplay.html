@@ -7,7 +7,7 @@
     {%- for publication in filtered_publications -%}
         <a class="publication-link" href="{{ publication.url | relative_url }}">
             <div style="display: flex; max-height: fit-content; margin-bottom: 10px;">
-                <img src="{{ site.baseurl }}/images/publications/{{ publication.title }}.png" style="height: 100px">
+                <img src="{{ site.baseurl }}/images/publications/{{ publication.title }}.png" style="height: 100px; object-fit: contain;">
                 <div style="display: flex; flex-direction: column; margin-left: 10px;">
                     {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
                     <span class="publication-meta">

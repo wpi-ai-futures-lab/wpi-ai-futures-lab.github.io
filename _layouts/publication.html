@@ -27,13 +27,15 @@ layout: default
     <a target="_blank" rel="noopener noreferrer" href={{ page.link }}>Paper</a>
 </header>
 
-<img src="{{ site.baseurl }}/images/publications/{{ page.title }}.png">
-<p><i>{{ page.caption }}</i></p>
+<figure>
+    <img src="{{ site.baseurl }}/images/publications/{{ page.title }}.png">
+    <figcaption><i>{{ page.caption }}</i></figcaption>
+</figure>
 
-<h1>Abstract</h1>
+<h2>Abstract</h2>
 {{ content }}
 
-<h1>BibTeX</h1>
+<h2>BibTeX</h2>
 {% highlight bibtex %}
 {{ page.bibtex }}
 {% endhighlight %}
