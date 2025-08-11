@@ -29,22 +29,11 @@ layout: default
 
 	{%- if site.members.size > 0 -%}
 		<h2 class="member-list-heading">{{ page.list_title | default: "Members" }}</h2>
-		{% comment %} <div class="member-list" style="display: flex; flex-direction: column;">
-			{%- for member in site.members -%}
-				<a class="member-link" href="{{ member.url | relative_url }}">
-					<div style="display: flex; margin-bottom: 10px;">
-						<img src="{{ site.baseurl }}/images/members/{{ member.short_name }}.png" width="100">
-						<div style="display: flex; flex-direction: column;">
-							<h3>{{ member.name | escape }}</h3>
-							<h4>{{ member.position }}</h4>
-							{%- if site.show_excerpts -%}
-								{{ project.excerpt }}
-							{%- endif -%}
-						</div>
-					</div>
-				</a>
-			{%- endfor -%}
-		</div> {% endcomment %}
 		{%- include memberDisplay.html list=site.members -%}
+	{%- endif -%}
+
+	{%- if site.past_members.size > 0 -%}
+		<h2 class="past-member-list-heading">{{ page.list_title | default: "Past Members" }}</h2>
+		{%- include memberDisplay.html list=site.past_members -%}
 	{%- endif -%}
 </div>

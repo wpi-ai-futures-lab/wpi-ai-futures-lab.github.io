@@ -61,6 +61,8 @@ collections:
     output: true
   members:
     output: true
+  past_members:
+    output: true
 
 defaults:
   - scope:
@@ -71,6 +73,11 @@ defaults:
   - scope:
       path: ""
       type: "members"
+    values:
+      layout: "member"
+  - scope:
+      path: ""
+      type: "past_members"
     values:
       layout: "member"
   - scope:
