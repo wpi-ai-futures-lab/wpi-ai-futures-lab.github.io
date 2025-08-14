@@ -2,6 +2,13 @@
 short_name: mjchen
 name: Max Chen
 position: PhD Candidate
+external_links:
+  - url: https://scholar.google.com/citations?user=3t7PJQEAAAAJ&hl=en
+    type: linkedin
+  - url: https://scholar.google.com/citations?user=4bHar00AAAAJ&hl=en
+    type: scholar
+  - url: https://users.wpi.edu/~mjchen/
+    type: website
 ---
 
 I am a PhD candidate in Computational Media at Worcester Polytechnic Institute (WPI), advised by Gillian Smith and Erin Solovey. I am a member of the WPI Intentional Design Studio and WPI HCI Lab. My research explores the intersection of computational creativity, game design, and human-computer interaction, with a focus on how algorithm-assisted design influences creative agency and reflective thinking. I investigate procedural and generative tools in game development, examining their impact on design iteration and evaluation.

@@ -11,24 +11,16 @@ layout: default
 
 	{%- if site.projects.size > 0 -%}
 		<h2 class="project-list-heading">{{ page.list_title | default: "Projects" }}</h2>
-		<div class="project-list" style="display: flex;">
-			{%- for project in site.projects -%}
-				<div style="display: flex; flex-direction: column; margin-right: 10px;">
-					<a class="project-link" href="{{ project.url | relative_url }}">
-						<h3>{{ project.title | escape }}</h3>
-						<img src="{{ site.baseurl }}/images/projects/{{ project.title }}.png" width="500">
-					</a>
-					{% comment %} {%- if site.show_excerpts -%}
-						{{ project.excerpt }}
-					{%- endif -%} {% endcomment %}
-				</div>
-			{%- endfor -%}
-		</div>
-		{% comment %} {% include projectDisplay.html %} {% endcomment %}
+		{%- include projectDisplay.html list=site.projects member="" -%}
+	{%- endif -%}
+
+	{%- if site.directors.size > 0 -%}
+		<h2 class="directors-list-heading">{{ page.list_title | default: "Directors" }}</h2>
+		{%- include memberDisplay.html list=site.directors -%}
 	{%- endif -%}
 
 	{%- if site.members.size > 0 -%}
-		<h2 class="member-list-heading">{{ page.list_title | default: "Members" }}</h2>
+		<h2 class="member-list-heading">{{ page.list_title | default: "Current Members" }}</h2>
 		{%- include memberDisplay.html list=site.members -%}
 	{%- endif -%}
 

@@ -2,6 +2,11 @@
 short_name: jdboucher
 name: Josiah Boucher
 position: PhD Candidate
+external_links:
+  - url: https://www.linkedin.com/in/josiahboucher/
+    type: linkedin
+  - url: https://scholar.google.com/citations?user=-k3JebMAAAAJ&hl=en
+    type: scholar
 ---
 
 I am a Ph.D. candidate in Computational Media at WPI, fully funded through research and teaching assistantships. Additionally, I am a fellow with FORW-RD---a research trainership program funded by the National Science Foundation that seeks to understand how robotics, A.I., and automation are changing the ways work is done. 

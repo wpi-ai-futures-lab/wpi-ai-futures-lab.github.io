@@ -2,6 +2,22 @@
 layout: default
 ---
     
+<style>
+    .btn-primary {
+    padding: 0.5em 1em;
+    background: #007bff;
+    color: #fff !important;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn-primary:hover {
+        background: #0069d9; 
+        text-decoration: none;
+}
+
+</style>
 <header class="publication-header">
     <h1 class="publication-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="publication-meta">
@@ -22,22 +38,17 @@ layout: default
             {%- endfor -%}
         </span>
     </p> {% endcomment %}
-    {%- assign member_list = site.members | where_exp: 'mem', "page.members contains mem.short_name" -%}
-    {%- include memberDisplay.html list=member_list -%}
-    <a target="_blank" rel="noopener noreferrer" href={{ page.link }}>Paper</a>
+    <div style="margin-bottom: 2em;">
+    <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ page.link }}">View Paper</a>
+    </div>
 </header>
-
-<figure>
-    <img src="{{ site.baseurl }}/images/publications/{{ page.title }}.png">
-    <figcaption><i>{{ page.caption }}</i></figcaption>
-</figure>
 
 <h2>Abstract</h2>
 {{ content }}
 
 <h2>BibTeX</h2>
 {% highlight bibtex %}
-{{ page.bibtex }}
+{{ page.bibtex}}
 {% endhighlight %}
 
 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

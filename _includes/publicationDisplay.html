@@ -1,34 +1,91 @@
-<div class="publication-list" style="display: flex; flex-direction: column;">
+<style>
+.publication-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s, transform 0.1s;
+    cursor: pointer;
+}
+
+.publication-card button {
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+}
+
+.publication-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    outline: 1px solid #eee;
+    padding: 1rem;
+}
+
+.publication-content img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+.publication-info {
+    flex: 1;
+}
+
+.publication-meta {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.publication-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #222;
+}
+
+.publication-authors {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+</style>
+
+<div class="publication-list">
     {%- if include.member == "" -%}
         {%- assign filtered_publications = site.publications -%}
     {%- else -%}
         {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.members contains include.member" -%}
     {%- endif -%}
-    {%- for publication in filtered_publications -%}
-        <a class="publication-link" href="{{ publication.url | relative_url }}">
-            <div style="display: flex; max-height: fit-content; margin-bottom: 10px;">
-                <img src="{{ site.baseurl }}/images/publications/{{ publication.title }}.png" style="height: 100px; object-fit: contain;">
-                <div style="display: flex; flex-direction: column; margin-left: 10px;">
-                    {%- assign date_format = site.minima.date_format | default: "%B %Y" -%}
-                    <span class="publication-meta">
-                        {{ publication.date | date: date_format }} | {{ publication.source }}
-                    </span>
-                    <h3>{{ publication.title | escape }}</h3>
-                    <h4>
-                        {%- for member in publication.members -%}
-                            {%- assign m = site.members | where: 'short_name', member | first -%}
-                            {%- if forloop.index > 1 -%}, {% endif -%}
-                            <a href="{{ m.url | relative_url }}">
-                                {{- m.name -}}
-                            </a>
-                        {%- endfor -%}
-                    </h4>
-                    {%- if site.show_excerpts -%}
-                        {{ publication.excerpt }}
-                    {%- endif -%}
-                </div>
+    {%- assign sorted_publications = filtered_publications | sort: "date" | reverse -%}
+    {%- for publication in sorted_publications -%}
+        <div class="publication-card">
+          <button onclick="window.location.href='{{ publication.url | relative_url }}'">
+            <div class="publication-content">
+              <img src="{% if publication.teaserImage %}{{ publication.teaserImage }}{% else %}/images/publications/Test 1.png{% endif %}" alt="Publication Image">
+              <div class="publication-info">
+                <div class="publication-meta">{{ publication.date | date: "%B %Y" }} | {{ publication.source }}</div>
+                <p class="publication-title">{{ publication.title }}</p>
+                <p class="publication-authors">
+                  {% for author in publication.authors %}
+                    {{ author }}{% if forloop.last == false %}, {% endif %}
+                  {% endfor %}
+                </p>
+              </div>
             </div>
-        </a>
+          </button>
+        </div>
     {%- else -%}
         <p>Nothing yet...</p>
     {%- endfor -%}

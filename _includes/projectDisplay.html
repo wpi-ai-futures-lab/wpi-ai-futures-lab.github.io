@@ -1,21 +1,74 @@
-<div class="project-list" style="display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 20px; align-items: end;">
+
+<style>
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-bottom: 2rem;
+    }
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #f8f8f8;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        transition: box-shadow 0.2s, transform 0.1s;
+        cursor: pointer;
+    }
+    .project-card:active {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        transform: scale(0.97);
+    }
+    .project-image-container {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+    .project-card img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        display: block;
+    }
+    .project-card h3 {
+        margin: 0 0 4px 0;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .project-card p {
+        font-size: 0.95rem;
+        color: #666;
+        text-align: center;
+        margin: 0 0 8px 0;
+    }
+</style>
+
+<div class="project-grid">
     {%- if include.member == "" -%}
         {%- assign filtered_projects = site.projects -%}
     {%- else -%}
         {%- assign filtered_projects = site.projects | where_exp: 'proj', "proj.members contains include.member" -%}
     {%- endif -%}
     {%- for project in filtered_projects -%}
-        <div>
-            <a class="project-link" href="{{ project.url | relative_url }}">
-                <h3>
-                    {{ project.title | escape }}
-                </h3>
-                <img src="{{ site.baseurl }}/images/projects/{{ project.title }}.png" width="250">
-            </a>
-            {%- if site.show_excerpts -%}
-                {{ project.excerpt }}
-            {%- endif -%}
-        </div>
+        <a href="{{ project.url | relative_url }}" style="text-decoration: none; color: inherit;">
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="{{ site.baseurl }}/images/projects/{{ project.title }}.png" alt="{{ project.title }}">
+                </div>
+                <h3>{{ project.title | escape }}</h3>
+                <p>
+                    {%- if site.show_excerpts -%}
+                        {{ project.excerpt }}
+                    {%- endif -%}
+                </p>
+            </div>
+        </a>
     {%- else -%}
         <p>Nothing yet...</p>
     {%- endfor -%}

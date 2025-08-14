@@ -1,7 +1,16 @@
 ---
 short_name: gmsmith
-name: Prof. Gillian Smith
+name: Gillian Smith
 position: Lab Director
+external_links:
+  - url: https://www.linkedin.com/in/gillian-smith-b213103/
+    type: linkedin
+  - url: https://scholar.google.com/citations?user=4bHar00AAAAJ&hl=en
+    type: scholar
+  - url: https://www.wpi.edu/people/faculty/gmsmith
+    type: school
+  - url: http://www.sokath.com/
+    type: website
 ---
 
 Gillian Smith, an award-winning game designer, joined WPI in 2017. Her interdisciplinary work merges technical research in AI and HCI with creative practice in textiles and games, with a view towards addressing social issues and broadening participation and perspectives on computing. Their research interests are in computational creativity, game design, computer science education, and the intersection of traditional crafts and computation.

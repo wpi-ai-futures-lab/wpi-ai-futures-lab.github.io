@@ -1,7 +1,14 @@
 ---
 short_name: ydtelliel
-name: Prof. Yunus Telliel
+name: Yunus Telliel
 position: Lab Director
+external_links:
+  - url: https://www.linkedin.com/in/yunus-do%C4%9Fan-telliel-370458234/
+    type: linkedin
+  - url: https://scholar.google.com/citations?user=ByzudFsAAAAJ&hl=en
+    type: scholar
+  - url: https://www.wpi.edu/people/faculty/ydtelliel
+    type: school
 ---
 
 I am an Assistant Professor of Anthropology and Rhetoric. Before joining WPI, I was a postdoctoral fellow at the University of California, Berkeley. My work is animated by an intellectual curiosity with how ideas travel across time and space, and generate diverse practices of acting, seeing, and being in the world. I am especially intrigued by situations in which people come to ask new questions about themselves and others, in ways that require reconsideration of past experiences and imagining of future possibilities. Such situations, I believe, capture an important aspect of the human condition—the intertwining trajectories of power and authority, on the one hand, and creativity and innovation, on the other.
