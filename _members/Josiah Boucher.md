@@ -1,6 +1,6 @@
 ---
 short_name: jdboucher
-name: Josiah Boucher
+name: Josiah D. Boucher
 position: PhD Candidate
 external_links:
   - url: https://www.linkedin.com/in/josiahboucher/

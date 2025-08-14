@@ -27,14 +27,22 @@ layout: default
         </time>
         | {{ page.source }}
     </p>
+    {% comment %} <p>
+        <span>
+            {%- for member in page.members -%}
+                {%- assign m = site.members | where: 'short_name', member -%}
+                {%- if forloop.index > 1 -%}
+                    ,
+                {% endif -%}
+                {{ m[0].name }}
+            {%- endfor -%}
+        </span>
+    </p> {% endcomment %}
     <div style="margin-bottom: 2em;">
         <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="{{ page.link }}">View Paper</a>
     </div>
-    <p>
-        {% for author in page.authors %}
-            {{ author }}{% if forloop.last == false %}, {% endif %}
-        {% endfor %}
-    </p>
+    {%- assign member_list = site.directors | concat: site.members | concat: site.past_members | where_exp: 'mem', "page.authors contains mem.name" -%}
+    {%- include memberDisplay.html list=member_list -%}
 </header>
 
 <h2>Abstract</h2>

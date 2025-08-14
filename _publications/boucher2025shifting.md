@@ -1,16 +1,20 @@
 ---
+layout: publicationTest
+
 date: 2025-05-09
 source: Proceedings of the 20th International Conference on the Foundations of Digital Games
 link: https://doi.org/10.1145/3723498.3723721
 title: "Shifting Genres: Limits of Video Game Genre Taxonomy in Roguelikes"
-members:
-- jdboucher
-- ydtelliel
-- gmsmith
+teaserImage: 
+imageCaption: 
+authors:
+- Josiah D. Boucher
+- Yunus Doğan Telliel
+- Gillian Smith
 bibtex: >-
     @inproceedings{DBLP:conf/fdg/BoucherT025,
         author       = {Josiah D. Boucher and
-                        Yunus Doğan Telliel and
+                        Yunus Dogan Telliel and
                         Gillian Smith},
         editor       = {Johanna Pirker and
                         Fares Kayali and

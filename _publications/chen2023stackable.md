@@ -1,24 +1,37 @@
 ---
 date: 2023-10-6
 source: Companion Proceedings of the Annual Symposium on Computer-Human Interaction in Play
-authors: Max Chen, Shano Liang, Gillian Smith
 link: https://doi.org/10.1145/3573382.3616071
 title: "Stackable Music: A Marker-Based Augmented Reality Music Synthesis Game"
+teaserImage: 
+imageCaption: 
+authors:
+- Max Chen
+- Shano Liang
+- Gillian Smith
 bibtex: >-
-    @inproceedings{10.1145/3573382.3616071,
-        author = {Chen, Max and Liang, Shano and Smith, Gillian},
-        title = {Stackable Music: A Marker-Based Augmented Reality Music Synthesis Game},
-        year = {2023},
-        isbn = {9798400700293},
-        publisher = {Association for Computing Machinery},
-        address = {New York, NY, USA},
-        url = {https://doi.org/10.1145/3573382.3616071},
-        doi = {10.1145/3573382.3616071},
-        pages = {22–28},
-        numpages = {7},
-        keywords = {AR Game, Marker-based AR, Tangible Interaction, Transparent AR Markers},
-        location = {Stratford, ON, Canada},
-        series = {CHI PLAY Companion '23}
+    @inproceedings{DBLP:conf/chiplay/ChenL023,
+        author       = {Max Chen and
+                        Shano Liang and
+                        Gillian Smith},
+        editor       = {Jim Wallace and
+                        Jennifer R. Whitson and
+                        Beth Bonsignore and
+                        Julian Frommel and
+                        Erik Harpstead},
+        title        = {Stackable Music: {A} Marker-Based Augmented Reality Music Synthesis
+                        Game},
+        booktitle    = {Companion Proceedings of the Annual Symposium on Computer-Human Interaction
+                        in Play, {CHI} {PLAY} Companion 2023, Stratford, ON, Canada, October
+                        10-13, 2023},
+        pages        = {22--28},
+        publisher    = {{ACM}},
+        year         = {2023},
+        url          = {https://doi.org/10.1145/3573382.3616071},
+        doi          = {10.1145/3573382.3616071},
+        timestamp    = {Wed, 23 Oct 2024 13:21:29 +0200},
+        biburl       = {https://dblp.org/rec/conf/chiplay/ChenL023.bib},
+        bibsource    = {dblp computer science bibliography, https://dblp.org}
     }
 ---
 

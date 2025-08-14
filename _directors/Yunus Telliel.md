@@ -1,6 +1,6 @@
 ---
 short_name: ydtelliel
-name: Yunus Telliel
+name: Yunus Doğan Telliel
 position: Lab Director
 external_links:
   - url: https://www.linkedin.com/in/yunus-do%C4%9Fan-telliel-370458234/
