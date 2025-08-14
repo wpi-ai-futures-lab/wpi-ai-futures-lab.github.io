@@ -7,7 +7,7 @@ teaserImage:
 imageCaption:
 authors: 
 - Boucher, Josiah D 
-- Smith, Gillian 
+- Smith, Gillian
 - Telliel, Yunus Do\u{g}an
 bibtex: >-
         @inproceedings{10.1145/3613904.3641889,

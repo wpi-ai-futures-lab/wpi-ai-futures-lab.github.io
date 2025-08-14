@@ -65,6 +65,10 @@
 <div class="publication-list">
     {%- if include.member == "" -%}
         {%- assign filtered_publications = site.publications -%}
+    {%- elsif include.tag == "" -%}
+        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.tags contains include.tag" -%}
+    {%- elsif include.project == "" -%}
+        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.projects contains include.project" -%}
     {%- else -%}
         {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.members contains include.member" -%}
     {%- endif -%}
