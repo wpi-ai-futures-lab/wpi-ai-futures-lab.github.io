@@ -9,6 +9,9 @@ authors:
 - Karen Royer
 - Gillian Smith
 - Yunus Doğan Telliel
+tags:
+- genai
+- art
 bibtex: >-
     @inproceedings{DBLP:conf/candc/Royer0T24,
         author       = {Karen Royer and

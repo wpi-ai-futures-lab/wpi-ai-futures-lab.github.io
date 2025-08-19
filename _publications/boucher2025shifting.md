@@ -11,6 +11,8 @@ authors:
 - Josiah D. Boucher
 - Yunus Doğan Telliel
 - Gillian Smith
+tags:
+- game-dev
 bibtex: >-
     @inproceedings{DBLP:conf/fdg/BoucherT025,
         author       = {Josiah D. Boucher and

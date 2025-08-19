@@ -8,6 +8,8 @@ imageCaption:
 authors:
 - Max Chen
 - Gillian Smith
+tags:
+- game-dev
 bibtex: >-
     @inproceedings{DBLP:conf/fdg/Chen024,
         author       = {Max Chen and

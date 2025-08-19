@@ -10,6 +10,9 @@ authors:
 - Karen Royer
 - Gillian Smith
 - Anne Sullivan
+tags:
+- quilting
+- art
 bibtex: >-
     @inproceedings{DBLP:conf/candc/GravesR0S21,
         author       = {Jordan Graves and

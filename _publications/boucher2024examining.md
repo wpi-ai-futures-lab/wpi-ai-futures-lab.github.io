@@ -10,6 +10,9 @@ authors:
 - Max Chen
 - Gillian Smith
 - Yunus Telliel
+tags:
+- genai
+- game-dev
 bibtex: >-
     @inproceedings{DBLP:conf/exag/BoucherC0T24,
         author       = {Josiah D. Boucher and

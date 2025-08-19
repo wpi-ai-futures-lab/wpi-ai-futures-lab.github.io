@@ -12,6 +12,9 @@ authors:
 - Jordan Graves
 - Anne Sullivan
 - Gillian Smith
+tags:
+- quilting
+- art
 bibtex: >-
     @inproceedings{DBLP:conf/ACMdis/MireckiSRGS022,
         author       = {Victoria Mirecki and

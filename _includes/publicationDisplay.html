@@ -63,32 +63,44 @@
 </style>
 
 <div class="publication-list">
-    {%- if include.member == "" -%}
-        {%- assign filtered_publications = site.publications -%}
-    {%- elsif include.tag == "" -%}
-        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.tags contains include.tag" -%}
-    {%- elsif include.project == "" -%}
-        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.projects contains include.project" -%}
+    {%- assign filtered_publications = "" | split: '' -%}
+    {%- for tag in include.tags -%}
+        {%- assign pubs = site.publications | where_exp: 'pub', "pub.tags contains tag" -%}
+        {%- assign filtered_pubs = "" | split: '' -%}
+        {%- for pub in pubs -%}
+            {%- assign has_name = filtered_publications | where_exp: 'p', "p.title == pub.title" -%}
+            {%- if pub.title == page.title or has_name.size > 0 -%}
+                {%- continue -%}
+            {%- endif -%}
+            {%- assign filtered_pubs = filtered_pubs | push: pub -%}
+        {%- endfor -%}
+        {%- assign filtered_publications = filtered_publications | concat: filtered_pubs -%}
     {%- else -%}
-        {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.members contains include.member" -%}
-    {%- endif -%}
+        {%- if include.member == "" -%}
+            {%- assign filtered_publications = site.publications -%}
+        {%- elsif include.project == "" -%}
+            {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.projects contains include.project" -%}
+        {%- else -%}
+            {%- assign filtered_publications = site.publications | where_exp: 'pub', "pub.members contains include.member" -%}
+        {%- endif -%}
+    {%- endfor -%}
     {%- assign sorted_publications = filtered_publications | sort: "date" | reverse -%}
     {%- for publication in sorted_publications -%}
         <div class="publication-card">
-          <button onclick="window.location.href='{{ publication.url | relative_url }}'">
+        <button onclick="window.location.href='{{ publication.url | relative_url }}'">
             <div class="publication-content">
-              <img src="{% if publication.teaserImage %}{{ publication.teaserImage }}{% else %}/images/publications/Test 1.png{% endif %}" alt="Publication Image">
-              <div class="publication-info">
+            <img src="{% if publication.teaserImage %}{{ publication.teaserImage }}{% else %}/images/publications/Test 1.png{% endif %}" alt="Publication Image">
+            <div class="publication-info">
                 <div class="publication-meta">{{ publication.date | date: "%B %Y" }} | {{ publication.source }}</div>
                 <p class="publication-title">{{ publication.title }}</p>
                 <p class="publication-authors">
-                  {% for author in publication.authors %}
+                {% for author in publication.authors %}
                     {{ author }}{% if forloop.last == false %}, {% endif %}
-                  {% endfor %}
+                {% endfor %}
                 </p>
-              </div>
             </div>
-          </button>
+            </div>
+        </button>
         </div>
     {%- else -%}
         <p>Nothing yet...</p>

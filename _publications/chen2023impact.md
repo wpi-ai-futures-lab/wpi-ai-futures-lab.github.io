@@ -9,6 +9,8 @@ authors:
 - Max Chen
 - Erin Solovey
 - Gillian Smith
+tags:
+- game-dev
 bibtex: >-
     @inproceedings{DBLP:conf/fdg/ChenS023,
         author       = {Max Chen and

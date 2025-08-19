@@ -9,6 +9,8 @@ authors:
 - Josiah D. Boucher
 - Gillian Smith
 - Yunus Telliel
+tags:
+- genai
 bibtex: >-
     @inproceedings{DBLP:conf/exag/Boucher0T24,
         author       = {Josiah D. Boucher and

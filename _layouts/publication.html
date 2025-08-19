@@ -45,4 +45,7 @@ layout: default
 {{ page.bibtex }}
 {% endhighlight %}
 
+<h2>Related Publications</h2>
+{%- include publicationDisplay.html tags=page.tags -%}
+
 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

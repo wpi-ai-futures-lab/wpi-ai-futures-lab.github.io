@@ -9,6 +9,10 @@ authors:
 - Max Chen
 - Shano Liang
 - Gillian Smith
+tags:
+- game-dev
+- art
+- xr
 bibtex: >-
     @inproceedings{DBLP:conf/chiplay/ChenL023,
         author       = {Max Chen and
